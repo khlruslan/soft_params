@@ -2,7 +2,7 @@
 Comparison of program parameters in MML files
 
 example.txt  - first file.  
-example02.txt - second file.  
+example01.txt - second file.  
 result.txt - result of comparsion.  
 
 ## Solution 

@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-namespace tab {
+namespace tabulator {
 
 enum class Adjust { Left, Right };
 
@@ -13,15 +13,15 @@ struct ColumnDescr {
   Adjust adjust_ = Adjust::Right;
 };
 
-using TableSchema = std::vector<ColumnDescr>;
-using VectorString = std::vector<std::string>;
+using Schema = std::vector<ColumnDescr>;
+using Elements = std::vector<std::string>;
 
-std::string GetTopLine(const TableSchema &table);
-std::string GetHeaderLine(const TableSchema &table);
-std::string GetRowSeparatorLine(const TableSchema &table);
-std::string GetRowLine(const TableSchema &table, const VectorString &info);
-std::string GetFooterLine(const TableSchema &table);
+std::string GetTopLine(const Schema &tabs);
+std::string GetHeaderLine(const Schema &tabs);
+std::string GetRowSeparatorLine(const Schema &tabs);
+std::string GetRowLine(const Schema &tabs, const Elements &info);
+std::string GetFooterLine(const Schema &tabs);
 
 std::ostream &operator<<(std::ostream &os, Adjust adjust);
 
-} // namespace tab
+} // namespace tabulator

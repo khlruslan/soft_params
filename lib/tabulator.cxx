@@ -5,16 +5,14 @@
 
 #include "tabulator.h"
 
-namespace tab {
+namespace tabulator {
 
-using TableSchema = std::vector<ColumnDescr>;
-using VectorString = std::vector<std::string>;
 constinit const char chCross = '+';
 constinit const char chHLine = '-';
 constinit const char chVLine = '|';
 constinit const char chSharp = '#';
 
-std::string GetTopLine(const TableSchema &table) {
+std::string GetTopLine(const Schema &table) {
   std::string result(1, chCross);
   for (const auto &info : table) {
     result += std::string(info.width_, chHLine) + std::string(1, chCross);
@@ -22,7 +20,7 @@ std::string GetTopLine(const TableSchema &table) {
   return result;
 }
 
-std::string GetHeaderLine(const TableSchema &table) {
+std::string GetHeaderLine(const Schema &table) {
   std::ostringstream result;
   result << chVLine;
   for (size_t i = 0, is = table.size(); i != is; ++i) {
@@ -31,11 +29,11 @@ std::string GetHeaderLine(const TableSchema &table) {
   return result.str();
 }
 
-std::string GetRowSeparatorLine(const TableSchema &table) {
+std::string GetRowSeparatorLine(const Schema &table) {
   return GetTopLine(table);
 }
 
-std::string GetRowLine(const TableSchema &table, const VectorString &info) {
+std::string GetRowLine(const Schema &table, const Elements &info) {
   std::ostringstream result;
   if (table.size() == info.size()) {
     result << chVLine;
@@ -52,9 +50,7 @@ std::string GetRowLine(const TableSchema &table, const VectorString &info) {
   return result.str();
 }
 
-std::string GetFooterLine(const TableSchema &table) {
-  return GetTopLine(table);
-}
+std::string GetFooterLine(const Schema &table) { return GetTopLine(table); }
 
 std::ostream &operator<<(std::ostream &os, Adjust adjust) {
   switch (adjust) {
@@ -68,4 +64,5 @@ std::ostream &operator<<(std::ostream &os, Adjust adjust) {
   return os;
 }
 
-} // namespace tab
+} // namespace tabulator
+  //

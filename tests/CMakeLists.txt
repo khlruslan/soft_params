@@ -21,9 +21,9 @@ set_target_properties( unit_tests
 target_link_libraries(unit_tests
     PRIVATE
     gtest_main
-    FormatUtils
-    SoftParams
-    Tabulator
+#    FormatUtils
+#    SoftParams
+#    Tabulator
 )
 # Include directories (including where GoogleTest is built)
 target_include_directories(unit_tests PRIVATE ${gtest_SOURCE_DIR}/include)

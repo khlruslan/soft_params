@@ -5,4 +5,5 @@ include_directories(   ${soft_params_SOURCE_DIR}/inc
 
 add_executable(soft_para_diff main.cxx)
 
-target_link_libraries(soft_para_diff PUBLIC FormatUtils SoftParams MmlUtils Tabulator)
+target_link_libraries(soft_para_diff PUBLIC SoftParams)
+#target_link_libraries(soft_para_diff PUBLIC Print SoftParams)

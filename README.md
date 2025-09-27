@@ -6,4 +6,5 @@ example01.txt - second file.
 result.txt - result of comparsion.  
 
 ## Solution 
-Used std::visit for two variants to compare parameters of same type
+Used std::visit for two variants to compare parameters of same type  
+
